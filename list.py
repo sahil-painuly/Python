@@ -1,4 +1,5 @@
 list = [1,2,3,4,5] #list are mutable
+list[0] = 0 #allowed
 
 # List Slicing
 
