@@ -53,35 +53,41 @@ if ch.lower() == "yes":
         levels = rules()
         for key, value in levels.items():
             print(f"{key} -> Rs.{value}")
+    
+    ch = input("Do you want to proceed? (yes/no): ")
+    while ch.lower() not in ["yes", "no"]:
+        print("Invalid input! Please enter 'yes' or 'no'.")
+        ch = input("Do you want to proceed? (yes/no): ")
 
-    winnings = [int(value) for value in rules().values()]
-    total_winnings = 0
+    if ch.lower()=="yes":
+        winnings = [int(value) for value in rules().values()]
+        total_winnings = 0
 
-    for i in range(10):
-        clear_screen()  # Clear the screen
-        if i > 0:
-            print(f"{i+1} Question ye raha Apki computer screen par-->")
-        else:
-            print("Welcome to the game! Phela Question ye raha Apki computer screen par-->")
+        for i in range(10):
+            clear_screen()  # Clear the screen
+            if i > 0:
+                print(f"{i+1} Question ye raha Apki computer screen par-->")
+            else:
+                print("Welcome to the game!\nPhela Question ye raha Apki computer screen par-->")
 
-        print(qlist[i])
-        ans = input("Answer(a, b, c, d): ")
+            print(qlist[i])
+            ans = input("Answer(a, b, c, d): ")
 
-        correct_ans = questions[qlist[i]]
+            correct_ans = questions[qlist[i]]
 
-        if ans.lower() == correct_ans:
-            total_winnings += winnings[i]
-            print(f"Correct answer! You've won Rs. {winnings[i]} for this question and a total of Rs. {total_winnings} so far.")
-            if i < 9:
-                next_question = input("Do you want to proceed to the next question? (yes/no): ")
-                if next_question.lower() != "yes":
-                    break
-        else:
-            print(f"Wrong answer! Correct answer was: {correct_ans}")
-            print(f"Your total winning amount is Rs. {total_winnings}")
-            break  
-
-    print("Congratulations! You've answered all questions correctly.")
+            if ans.lower() == correct_ans:
+                total_winnings += winnings[i]
+                print(f"Correct answer! You've won Rs. {winnings[i]} for this question and a total of Rs. {total_winnings} so far.")
+                if i < 9:
+                    next_question = input("Do you want to proceed to the next question? (yes/no): ")
+                    if next_question.lower() != "yes":
+                        break
+            else:
+                print(f"Wrong answer! Correct answer was: {correct_ans}")
+                print(f"Your total winning amount is Rs. {total_winnings}")
+                break  
+        
 
 else:
     print("Exiting... Thank you for coming!")
+
