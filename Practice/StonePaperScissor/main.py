@@ -9,11 +9,11 @@ def winner(user, comp):
     else:
         return -1  
 
-print("\nR\tU\tL\tE\tS\n\nStone->1\tPaper->2\tScissor->3\n")
+print("\nR\tU\tL\tE\tS\n\nRock->1\tPaper->2\tScissor->3\n")
 
 while True:
     try:
-        user = int(input("Enter your choice (1 for Stone, 2 for Paper, 3 for Scissor): "))
+        user = int(input("Enter your choice (1 for Rock, 2 for Paper, 3 for Scissor): "))
         if user not in [1, 2, 3]:
             print("Wrong value! Please enter a value based on the given rules.")
         else:
@@ -21,7 +21,7 @@ while True:
     except ValueError:
         print("Wrong value entered by user! Please enter a number.")
 
-rules = {1: "Stone", 2: "Paper", 3: "Scissor"}
+rules = {1: "Rock", 2: "Paper", 3: "Scissor"}
 
 comp = random.randint(1, 3)
 
